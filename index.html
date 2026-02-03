@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Shopping Assistant - Exclusive Deals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      padding-bottom: 100px;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Ургентна лента на врвот */
+    .promo-bar {
+      background: #ff4757;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container { padding: 20px; }
+    h1 { margin-top: 30px; font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+    /* AI BOX */
+    .ai-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #00d2ff;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 20px auto;
+      backdrop-filter: blur(10px);
+      max-width: 450px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .ai-box h3 { color: #00d2ff; margin-bottom: 15px; }
+    
+    .email-form { display: flex; flex-direction: column; gap: 15px; }
+    .email-form input { padding: 15px; border-radius: 10px; border: none; font-size: 16px; text-align: center; }
+    .email-form button { 
+      padding: 15px; 
+      background: #00d2ff; 
+      color: #fff; 
+      border: none; 
+      font-weight: bold; 
+      border-radius: 10px; 
+      cursor: pointer; 
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(0,210,255,0.4);
+    }
+
+    /* СЕКЦИИ ЗА КОПЧИЊА */
+    .section { margin: 40px 0; }
+    .buttons { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 400px; margin: 0 auto; }
+    
+    .button {
+      display: block;
+      padding: 18px;
+      background: #fff;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 15px;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .button-ali { border-left: 8px solid #ff4747; }
+    .button-temu { border-left: 8px solid #ff7f50; }
+    .button:hover { transform: scale(1.05); background: #f1f1f1; }
+
+    /* SOCIAL PROOF NOTIFICATION */
+    #social-proof {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: white;
+      color: #333;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 999;
+      border: 1px solid #00d2ff;
+    }
+
+    /* WHATSAPP */
+    .wa-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+  </style>
+<script>
+window.GPTHOST_CONFIG = {
+  "projectId": "89e8234b-31ec-4ca5-becd-5e7ff041f51a",
+  "accountId": "92459233-966b-4e10-8269-99a892867b2b",
+  "features": {
+    "smartCapture": true,
+    "aiReplacement": false
+  },
+  "smartCapture": {
+    "enabled": true,
+    "terminalSelectors": [
+      "form.email-form",
+      "[data-smart-capture=\"commit\"]"
+    ],
+    "turnstileSiteKey": "",
+    "turnstileAction": "gpthost_capture",
+    "debug": false
+  },
+  "aiReplacement": {
+    "enabled": false
+  }
+};
+</script>
+<script id="gpthost-capture-bootstrap">
+// gpthost-capture-bootstrap
+(function() {
+  var global = window;
+  if (global.__GPTHOST_CAPTURE_BOOTSTRAP_LOADED) return;
+  global.__GPTHOST_CAPTURE_BOOTSTRAP_LOADED = true;
+
+  global.__GPTHOST_CAPTURE_DISABLE_INLINE = true;
+
+  var runtimeUrl = '/api/v2/smart-capture/runtime.js';
+
+  function fallbackToInline() {
+    if (global.__GPTHOST_CAPTURE_ACTIVE) return;
+
+    var attempts = 0;
+    function tryInit() {
+      if (global.__GPTHOST_CAPTURE_ACTIVE) return;
+      if (typeof global.__GPTHOST_CAPTURE_INLINE_INIT === 'function') {
+        global.__GPTHOST_CAPTURE_DISABLE_INLINE = false;
+        try {
+          global.__GPTHOST_CAPTURE_INLINE_INIT();
+        } catch (e) {
+          // Ignore fallback errors.
+        }
+        return;
+      }
+
+      attempts += 1;
+      if (attempts > 40) {
+        global.__GPTHOST_CAPTURE_DISABLE_INLINE = false;
+        return;
+      }
+      setTimeout(tryInit, 50);
+    }
+
+    tryInit();
+  }
+
+  function loadDynamicRuntime() {
+    if (!document || !document.createElement) return fallbackToInline();
+    if (global.__GPTHOST_CAPTURE_DYNAMIC_LOAD_IN_PROGRESS) return;
+    global.__GPTHOST_CAPTURE_DYNAMIC_LOAD_IN_PROGRESS = true;
+
+    var script = document.createElement('script');
+    script.src = runtimeUrl;
+    script.async = true;
+    script.onload = function() {
+      global.__GPTHOST_CAPTURE_DYNAMIC_LOAD_IN_PROGRESS = false;
+    };
+    script.onerror = function() {
+      global.__GPTHOST_CAPTURE_DYNAMIC_LOAD_IN_PROGRESS = false;
+      fallbackToInline();
+    };
+
+    var head = document.head || document.documentElement;
+    if (!head || !head.appendChild) return fallbackToInline();
+    head.appendChild(script);
+  }
+
+  loadDynamicRuntime();
+})();
+</script>
+
+<script data-gpthost-proxy>
+  (function() {
+    if (!('serviceWorker' in navigator)) return;
+    const swUrl = '/__gpthost__/resource-proxy.js?project_id=89e8234b-31ec-4ca5-becd-5e7ff041f51a&token=1770242704.cCjrZ0-6dSA9-l1ObJ1R43g1hTtMz10UIfn6YcXzups';
+    navigator.serviceWorker.register(swUrl, { scope: '/' }).catch(() => {});
+  })();
+</script>
+
+</head>
+<body>
+
+<div class="promo-bar">
+  🔥 <span id="lang-promo">AI Скенирањето завршува за:</span> <span id="timer">05:00</span>
+</div>
+
+<div class="container">
+  <h1>📱 AI Shopping Assistant</h1>
+
+  <div class="ai-box">
+    <h3>🤖 OmniAsk AI Agent</h3>
+    <p id="lang-desc">Активирај го AI за да ти ги испрати скриените 90% попусти на мејл веднаш!</p>
+    
+    <form class="email-form" action="https://formsubmit.co/ozesen454@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://shopbuttonsap.gpthost.online">
+      <input type="email" name="email" id="email-field" placeholder="Твојата е-пошта..." required>
+      <button type="submit" id="btn-text">АКТИВИРАЈ AI ПРЕПОРАКИ</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2 id="lang-deals">💰 Актуелни AI Зделки</h2>
+    <div class="buttons">
+      <a class="button button-ali" href="#" id="ali-link" target="_blank">📦 AliExpress (AI Рекомендација)</a>
+      <a class="button button-temu" href="#" id="temu-link" target="_blank">🧡 Temu (Шок Попусти)</a>
+    </div>
+  </div>
+</div>
+
+<div id="social-proof"></div>
+
+<a href="https://wa.me/38977882082" class="wa-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="55">
+</a>
+
+<script>
+  // ТВОИТЕ ЛИНКОВИ ЗА РОТАЦИЈА
+  const aliLinks = [
+    "https://s.click.aliexpress.com/e/_EudfGTE", "https://s.click.aliexpress.com/e/_EHfkzrq",
+    "https://s.click.aliexpress.com/e/_Ewchzti", "https://s.click.aliexpress.com/e/_EvyLT8g",
+    "https://s.click.aliexpress.com/e/_Ezx1lWM", "https://s.click.aliexpress.com/e/_EyklQ3S",
+    "https://s.click.aliexpress.com/e/_EvfYSF6", "https://s.click.aliexpress.com/e/_EjIAoZA",
+    "https://s.click.aliexpress.com/e/_EuPfO0M", "https://s.click.aliexpress.com/e/_EuCAMyU",
+    "https://s.click.aliexpress.com/e/_EG67okM"
+  ];
+
+  const temuLinks = [
+    "https://share.temu.com/RNgkbUhRGUB", "https://share.temu.com/Q73F8ugCGFB",
+    "https://share.temu.com/D8vA4W4XbMB", "https://share.temu.com/bbKkoJXLRdB",
+    "https://share.temu.com/p63XsHlSzhB", "https://share.temu.com/5C44B8xv5kB",
+    "https://share.temu.com/nvhgkHm2XbB", "https://share.temu.com/xmjF03oRznB"
+  ];
+
+  // Функција за случаен линк
+  function setRandomLinks() {
+    document.getElementById('ali-link').href = aliLinks[Math.floor(Math.random() * aliLinks.length)];
+    document.getElementById('temu-link').href = temuLinks[Math.floor(Math.random() * temuLinks.length)];
+  }
+  setRandomLinks();
+
+  // ТАЈМЕР
+  let time = 300;
+  setInterval(() => {
+    let mins = Math.floor(time / 60);
+    let secs = time % 60;
+    document.getElementById('timer').innerHTML = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    if(time > 0) time--;
+  }, 1000);
+
+  // SOCIAL PROOF
+  const names = ["Марко", "Стефан", "Ана", "Elena", "David", "Кристијан", "Јована"];
+  const cities = ["Скопје", "Битола", "Охрид", "Veles", "Kumanovo"];
+  
+  function showProof() {
+    const proof = document.getElementById('social-proof');
+    const name = names[Math.floor(Math.random() * names.length)];
+    const city = cities[Math.floor(Math.random() * cities.length)];
+    const savings = Math.floor(Math.random() * 2000) + 300;
+    
+    proof.innerHTML = `✅ <b>${name}</b> од ${city} тукушто заштеди ${savings} ден. со AI.`;
+    proof.style.display = 'block';
+    setTimeout(() => { proof.style.display = 'none'; }, 4000);
+  }
+  setInterval(showProof, 8000);
+
+  // ЕXIT INTENT
+  document.addEventListener("mouseleave", (e) => {
+    if (e.clientY < 0) {
+      alert("Чекај! AI најде уште 3 купони за тебе. Остави мејл пред да си заминеш!");
+    }
+  }, {once: true});
+</script>
+
+<script>
+// gpthost-capture
+(function() {
+  function getConfig() {
+    return window.GPTHOST_CONFIG || {};
+  }
+
+  function isEnabled() {
+    return Boolean(getConfig().smartCapture && getConfig().smartCapture.enabled);
+  }
+
+  function requiresTurnstile() {
+    var siteKey = (getConfig().smartCapture && getConfig().smartCapture.turnstileSiteKey) || '';
+    return Boolean(siteKey);
+  }
+
+  var fieldCache = {};
+  var selectionCache = {};
+  var sensitiveTokens = ['card', 'cvv', 'cvc', 'payment', 'credit', 'billing', 'security', 'pin', 'password'];
+  var terminalTextTokens = ['place order', 'complete order', 'confirm order', 'pay now', 'buy now', 'purchase', 'submit order'];
+  var weakTerminalTokens = ['checkout', 'review order', 'continue to payment', 'continue to checkout', 'confirm payment'];
+  var commitTextTokens = ['submit', 'finish', 'complete', 'done', 'send', 'confirm'];
+  var navigationTokens = ['next', 'back', 'previous', 'prev', 'start', 'begin', 'continue', 'skip', 'ok'];
+  var ANSWERS_ATTR_MAX_LENGTH = 12000;
+  var NEARBY_INPUT_DISTANCE = 360;
+  var cachedSelectors = null;
+  var fallbackEnabled = false;
+  var fallbackObservationTimeoutMs = 2000;
+
+  function normalizeLabel(label) {
+    return (label || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function normalizeText(text) {
+    return (text || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+
+  function toTitleCase(raw) {
+    var spaced = String(raw || '')
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      .replace(/[_-]+/g, ' ')
+      .trim();
+    if (!spaced) return '';
+    return spaced
+      .split(/\s+/)
+      .map(function(token) {
+        return token.slice(0, 1).toUpperCase() + token.slice(1).toLowerCase();
+      })
+      .join(' ');
+  }
+
+  function isCommitLikeText(text) {
+    var normalized = normalizeText(text);
+    if (!normalized) return false;
+    var commitMatch = commitTextTokens.some(function(token) {
+      return normalized.indexOf(token) !== -1;
+    });
+    if (commitMatch) return true;
+    return terminalTextTokens.some(function(token) {
+      return normalized.indexOf(token) !== -1;
+    });
+  }
+
+  function isNavigationText(text) {
+    var normalized = normalizeText(text);
+    if (!normalized) return false;
+    return navigationTokens.some(function(token) {
+      return normalized === token || normalized.indexOf(token) !== -1;
+    });
+  }
+
+  function isSensitiveLabel(label) {
+    var lower = label.toLowerCase();
+    return sensitiveTokens.some(function(token) {
+      return lower.indexOf(token) !== -1;
+    });
+  }
+
+  function extractLabelText(labelEl) {
+    if (!labelEl) return '';
+    try {
+      var clone = labelEl.cloneNode(true);
+      var controls = clone.querySelectorAll('input, select, textarea, button, svg');
+      controls.forEach(function(el) {
+        if (el && el.parentNode) {
+          el.parentNode.removeChild(el);
+        }
+      });
+      return normalizeLabel(clone.textContent || '');
+    } catch (e) {
+      return normalizeLabel(labelEl.textContent || '');
+    }
+  }
+
+  function getFieldLabel(input) {
+    if (!input) return '';
+    var label = '';
+    if (input.labels && input.labels.length) {
+      label = extractLabelText(input.labels[0]);
+    }
+    if (!label) {
+      var ariaLabel = input.getAttribute && input.getAttribute('aria-label');
+      if (ariaLabel) label = ariaLabel;
+    }
+    if (!label) {
+      var labelledBy = input.getAttribute && input.getAttribute('aria-labelledby');
+      if (labelledBy) {
+        var labelEl = document.getElementById(labelledBy);
+        if (labelEl) label = normalizeLabel(labelEl.textContent || '');
+      }
+    }
+    if (!label && input.closest) {
+      var parentLabel = input.closest('label');
+      if (parentLabel) label = extractLabelText(parentLabel);
+    }
+    if (!label && input.getAttribute) {
+      label = input.getAttribute('data-label') || '';
+    }
+    if (!label) {
+      label = input.name || input.id || '';
+    }
+    if (!label) {
+      label = input.placeholder || '';
+    }
+    return normalizeLabel(label);
+  }
+
+  function getFieldValue(input) {
+    if (!input) return '';
+    if (input.tagName === 'SELECT') {
+      var selected = input.options && input.selectedIndex >= 0
+        ? input.options[input.selectedIndex]
+        : null;
+      return selected ? (selected.textContent || selected.value || '') : (input.value || '');
+    }
+    return input.value || '';
+  }
+
+  function getElementText(el) {
+    if (!el) return '';
+    var text = el.textContent || '';
+    if (!text && el.getAttribute) {
+      text = el.getAttribute('aria-label') || el.getAttribute('title') || '';
+    }
+    if (!text && typeof el.value === 'string') {
+      text = el.value;
+    }
+    return normalizeText(text);
+  }
+
+  function mergeFields(base, next) {
+    var merged = {};
+    Object.keys(base || {}).forEach(function(key) {
+      merged[key] = base[key];
+    });
+    Object.keys(next || {}).forEach(function(key) {
+      merged[key] = next[key];
+    });
+    return merged;
+  }
+
+  function hasCommitMarker(el) {
+    if (!el || !el.matches) return false;
+    if (el.matches('[data-smart-capture="commit"]')) return true;
+    return Boolean(el.closest && el.closest('[data-smart-capture="commit"]'));
+  }
+
+  function isCommitElement(el) {
+    if (!el) return false;
+    if (hasCommitMarker(el)) return true;
+    return isCommitLikeText(getElementText(el));
+  }
+
+  function formatAnswerKey(label) {
+    var normalized = normalizeLabel(label);
+    if (!normalized) return '';
+    return toTitleCase(normalized);
+  }
+
+  function addAnswerField(fields, label, value) {
+    var normalizedLabel = normalizeLabel(label);
+    if (!normalizedLabel || isSensitiveLabel(normalizedLabel)) return;
+
+    if (Array.isArray(value)) {
+      var cleaned = [];
+      value.forEach(function(entry) {
+        var cleanedValue = normalizeLabel(entry);
+        if (!cleanedValue) return;
+        if (cleaned.indexOf(cleanedValue) !== -1) return;
+        cleaned.push(cleanedValue);
+      });
+      if (cleaned.length === 0) return;
+      fields[normalizedLabel] = cleaned;
+      return;
+    }
+
+    var normalizedValue = normalizeLabel(value);
+    if (!normalizedValue) return;
+    fields[normalizedLabel] = normalizedValue;
+  }
+
+  function coerceAnswerValue(value) {
+    if (value === undefined || value === null) return null;
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+      var primitive = normalizeLabel(String(value));
+      return primitive ? primitive : null;
+    }
+    if (Array.isArray(value)) {
+      var aggregated = [];
+      value.forEach(function(entry) {
+        var coerced = coerceAnswerValue(entry);
+        if (coerced === null) return;
+        if (Array.isArray(coerced)) {
+          coerced.forEach(function(item) {
+            if (!item) return;
+            if (aggregated.indexOf(item) === -1) aggregated.push(item);
+          });
+          return;
+        }
+        if (aggregated.indexOf(coerced) === -1) aggregated.push(coerced);
+      });
+      return aggregated.length ? aggregated : null;
+    }
+    if (typeof value === 'object') {
+      var objectValue = value;
+      var keys = ['value', 'answer', 'response', 'selection', 'selected', 'choice'];
+      for (var i = 0; i < keys.length; i += 1) {
+        var candidate = objectValue[keys[i]];
+        if (candidate !== undefined) {
+          return coerceAnswerValue(candidate);
+        }
+      }
+    }
+    return null;
+  }
+
+  function collectAnswerFields(entry, fields) {
+    if (!entry) return;
+    if (Array.isArray(entry)) {
+      entry.forEach(function(item) {
+        collectAnswerFields(item, fields);
+      });
+      return;
+    }
+    if (typeof entry !== 'object') return;
+
+    var labelKeys = ['question', 'label', 'title', 'prompt', 'heading'];
+    var valueKeys = ['answer', 'value', 'response', 'selection', 'selected', 'choice'];
+    var questionLabel = '';
+    for (var i = 0; i < labelKeys.length; i += 1) {
+      var candidateLabel = entry[labelKeys[i]];
+      if (typeof candidateLabel === 'string' && normalizeLabel(candidateLabel)) {
+        questionLabel = normalizeLabel(candidateLabel);
+        break;
+      }
+    }
+
+    var resolvedValue = null;
+    for (var j = 0; j < valueKeys.length; j += 1) {
+      if (entry[valueKeys[j]] !== undefined) {
+        resolvedValue = coerceAnswerValue(entry[valueKeys[j]]);
+        if (resolvedValue !== null) break;
+      }
+    }
+
+    if (questionLabel && resolvedValue !== null) {
+      addAnswerField(fields, questionLabel, resolvedValue);
+      return;
+    }
+
+    Object.keys(entry).forEach(function(key) {
+      if (labelKeys.indexOf(key) !== -1) return;
+      var value = entry[key];
+      var coerced = coerceAnswerValue(value);
+      if (coerced === null) return;
+      addAnswerField(fields, formatAnswerKey(key), coerced);
+    });
+  }
+
+  function extractAnswersFromAttribute() {
+    try {
+      var root = document.body;
+      if (!root || !root.getAttribute) return {};
+      var raw = root.getAttribute('data-smart-capture-answers');
+      if (!raw) return {};
+      if (raw.length > ANSWERS_ATTR_MAX_LENGTH) return {};
+      var parsed = JSON.parse(raw);
+      var fields = {};
+      collectAnswerFields(parsed, fields);
+      return fields;
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function isMultiSelectTarget(target) {
+    if (!target) return false;
+    if (target.matches && target.matches('input[type="checkbox"]')) return true;
+    if (target.getAttribute && target.getAttribute('role') === 'checkbox') return true;
+    if (target.closest) {
+      if (target.closest('input[type="checkbox"]')) return true;
+      if (target.closest('[role="checkbox"]')) return true;
+      if (target.closest('[aria-multiselectable="true"], [data-multi-select="true"], [data-multiselect="true"]')) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function resolveQuestionLabel(container) {
+    if (!container || !container.getAttribute) return '';
+    var direct = container.getAttribute('data-question')
+      || container.getAttribute('data-question-title')
+      || container.getAttribute('aria-label')
+      || container.getAttribute('data-label');
+    if (direct) return normalizeLabel(direct);
+    var heading = container.querySelector
+      ? container.querySelector('legend, h1, h2, h3, h4, h5, h6')
+      : null;
+    if (heading) {
+      var headingText = normalizeLabel(heading.textContent || '');
+      if (headingText) return headingText;
+    }
+    return '';
+  }
+
+  function resolveOptionText(option) {
+    if (!option || !option.querySelectorAll) {
+      return normalizeLabel(option && option.textContent ? option.textContent : '');
+    }
+    var candidates = option.querySelectorAll(
+      '[data-option-label], [data-answer], .option-label, .option-text, .text-lg, span, p, label'
+    );
+    var best = '';
+    candidates.forEach(function(node) {
+      var text = normalizeLabel(node.textContent || '');
+      if (!text) return;
+      if (text.length > best.length) best = text;
+    });
+    var fallback = best || normalizeLabel(option.textContent || '');
+    if (!fallback) return '';
+    var parts = fallback.split(' ');
+    if (parts.length > 1 && /^[A-Za-z]$/.test(parts[0])) {
+      return parts.slice(1).join(' ');
+    }
+    return fallback;
+  }
+
+  function resolveDecoratedValue(option) {
+    if (!option || !option.getAttribute) return '';
+    var rating = option.getAttribute('data-rating');
+    if (rating) return normalizeLabel(rating);
+    var explicit = option.getAttribute('data-value')
+      || option.getAttribute('data-option')
+      || option.getAttribute('data-choice');
+    if (explicit) return normalizeLabel(explicit);
+    var text = resolveOptionText(option);
+    if (text) return text;
+    if (typeof option.value === 'string') return normalizeLabel(option.value);
+    return '';
+  }
+
+  function decorateSurveyElements() {
+    if (!document || !document.querySelectorAll) return;
+    var containers = document.querySelectorAll(
+      '.slide, [data-step], [data-question], [data-question-title], fieldset, section, [role="group"], .question, .survey-question'
+    );
+    containers.forEach(function(container) {
+      var label = resolveQuestionLabel(container);
+      if (!label) return;
+      var inputs = container.querySelectorAll('input, textarea, select');
+      inputs.forEach(function(input) {
+        if (!input || !input.getAttribute) return;
+        if (!input.getAttribute('data-label') && !input.getAttribute('aria-label')) {
+          input.setAttribute('data-label', label);
+        }
+      });
+      var options = container.querySelectorAll(
+        '.option-card, .star-btn, [data-rating], [role="option"], input[type="radio"], input[type="checkbox"]'
+      );
+      options.forEach(function(option) {
+        if (!option || !option.getAttribute) return;
+        if (!option.getAttribute('data-question')) {
+          option.setAttribute('data-question', label);
+        }
+        if (!option.getAttribute('data-value')) {
+          var value = resolveDecoratedValue(option);
+          if (value) option.setAttribute('data-value', value);
+        }
+      });
+    });
+  }
+
+  function resolveSelectionValue(target) {
+    if (!target) return '';
+    if (target.getAttribute) {
+      var dataValue = target.getAttribute('data-value')
+        || target.getAttribute('data-option')
+        || target.getAttribute('data-choice');
+      if (dataValue) return normalizeLabel(dataValue);
+      var ratingValue = target.getAttribute('data-rating');
+      if (ratingValue) return normalizeLabel(ratingValue);
+    }
+
+    if (target.matches && target.matches('input')) {
+      if (target.value) return normalizeLabel(target.value);
+    }
+
+    if (target.querySelector) {
+      var input = target.querySelector('input');
+      if (input && input.value) return normalizeLabel(input.value);
+    }
+
+    var text = normalizeLabel(target.textContent || '');
+    if (!text && target.getAttribute) {
+      text = normalizeLabel(target.getAttribute('aria-label') || target.getAttribute('title') || '');
+    }
+    return text;
+  }
+
+  function resolveSelectionLabel(target) {
+    if (!target) return '';
+    if (target.getAttribute) {
+      var direct = target.getAttribute('data-question')
+        || target.getAttribute('data-question-title')
+        || target.getAttribute('aria-label')
+        || target.getAttribute('data-label');
+      if (direct) return normalizeLabel(direct);
+    }
+
+    var container = target.closest
+      ? target.closest('[data-question], [data-question-title], fieldset, section, [role="group"], .question, .survey-question, .slide, [data-step]')
+      : null;
+    if (container) {
+      var containerLabel = resolveQuestionLabel(container);
+      if (containerLabel) return containerLabel;
+    }
+
+    if (target.id) return formatAnswerKey(target.id);
+    return '';
+  }
+
+  function findSelectionCandidate(target) {
+    if (!target || !target.closest) return null;
+    return target.closest('[onclick], .option-card, .star-btn, [data-rating], [data-value], input[type="radio"], input[type="checkbox"], [role="option"], [role="checkbox"]');
+  }
+
+  function writeAnswersAttribute(fields) {
+    try {
+      if (!document || !document.body || !document.body.setAttribute) return;
+      var entries = [];
+      Object.keys(fields || {}).forEach(function(key) {
+        var value = fields[key];
+        if (value === undefined || value === null || value === '') return;
+        entries.push({ question: key, answer: value });
+      });
+      var raw = JSON.stringify(entries);
+      if (typeof raw !== 'string') return;
+      if (raw.length > ANSWERS_ATTR_MAX_LENGTH) return;
+      document.body.setAttribute('data-smart-capture-answers', raw);
+    } catch (e) {
+      return;
+    }
+  }
+
+  function recordSelection(target) {
+    if (!target) return;
+    var label = resolveSelectionLabel(target);
+    var value = resolveSelectionValue(target);
+    if (!label || !value) return;
+    if (isSensitiveLabel(label)) return;
+    if (isCommitLikeText(value) || isNavigationText(value)) return;
+
+    if (isMultiSelectTarget(target)) {
+      var existing = selectionCache[label];
+      var next = [];
+      if (Array.isArray(existing)) {
+        next = existing.slice();
+      } else if (existing) {
+        next = [existing];
+      }
+      if (next.indexOf(value) === -1) next.push(value);
+      selectionCache[label] = next;
+      return;
+    }
+
+    selectionCache[label] = value;
+  }
+
+  function captureField(input) {
+    var type = (input.type || '').toLowerCase();
+    if (type === 'password' || type === 'hidden' || type === 'file') return;
+    if (input.autocomplete && /^cc-/.test(input.autocomplete)) return;
+    var label = getFieldLabel(input);
+    if (!label || isSensitiveLabel(label)) return;
+    var value = getFieldValue(input);
+    if (!value) return;
+    fieldCache[label] = value;
+  }
+
+  function getSelectors() {
+    var selectors = (getConfig().smartCapture && getConfig().smartCapture.terminalSelectors) || [];
+    if (!Array.isArray(selectors)) {
+      return [];
+    }
+    selectors = selectors.filter(Boolean);
+    var expanded = [];
+    selectors.forEach(function(selector) {
+      String(selector)
+        .split(',')
+        .forEach(function(part) {
+          var trimmed = part.trim();
+          if (trimmed) expanded.push(trimmed);
+        });
+    });
+    selectors = expanded;
+    if (selectors.indexOf('[data-smart-capture="commit"]') === -1) {
+      selectors.push('[data-smart-capture="commit"]');
+    }
+    return selectors;
+  }
+
+  function getExplicitSelectors(selectors) {
+    return selectors.filter(function(selector) {
+      return selector !== '[data-smart-capture="commit"]';
+    });
+  }
+
+  function selectorExists(selector) {
+    var parsed = parseTextSelector(selector);
+    if (parsed) {
+      var base = parsed.base;
+      var scope = base === '*' ? 'button, a, [role="button"]' : base;
+      try {
+        var nodes = document.querySelectorAll(scope);
+        var matches = [];
+        for (var i = 0; i < nodes.length; i += 1) {
+          if (getElementText(nodes[i]).indexOf(parsed.text) !== -1) {
+            matches.push(nodes[i]);
+          }
+        }
+        if (matches.length === 0) return false;
+        if (matches.length === 1) return true;
+        return matches.some(function(node) {
+          return isCommitElement(node);
+        });
+      } catch (e) {
+        return false;
+      }
+    }
+    try {
+      var directMatches = document.querySelectorAll(selector);
+      if (!directMatches.length) return false;
+      if (directMatches.length === 1) return true;
+      for (var j = 0; j < directMatches.length; j += 1) {
+        if (isCommitElement(directMatches[j])) return true;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function initFallback(selectors) {
+    var explicitSelectors = getExplicitSelectors(selectors);
+    if (!explicitSelectors.length) {
+      fallbackEnabled = true;
+      return;
+    }
+
+    if (explicitSelectors.some(selectorExists)) {
+      fallbackEnabled = false;
+      return;
+    }
+
+    fallbackEnabled = false;
+    var root = document.documentElement || document.body;
+    if (!root || !window.MutationObserver) {
+      fallbackEnabled = true;
+      return;
+    }
+
+    var resolved = false;
+    var observer = new MutationObserver(function() {
+      if (explicitSelectors.some(selectorExists)) {
+        resolved = true;
+        fallbackEnabled = false;
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(root, { childList: true, subtree: true });
+
+    setTimeout(function() {
+      if (resolved) return;
+      fallbackEnabled = true;
+      observer.disconnect();
+    }, fallbackObservationTimeoutMs);
+  }
+
+  function parseTextSelector(selector) {
+    if (!selector) return null;
+    var match = selector.match(/:(has-text|contains)\(([^)]+)\)/i);
+    if (!match) return null;
+    var rawText = match[2] || '';
+    var cleaned = rawText.replace(/^['"]|['"]$/g, '');
+    var base = selector.replace(match[0], '').trim();
+    return { base: base || '*', text: normalizeText(cleaned) };
+  }
+
+  function countSelectorMatches(selector) {
+    var parsed = parseTextSelector(selector);
+    if (parsed) {
+      var base = parsed.base;
+      var scope = base === '*' ? 'button, a, [role="button"]' : base;
+      try {
+        var nodes = document.querySelectorAll(scope);
+        var count = 0;
+        for (var i = 0; i < nodes.length; i += 1) {
+          if (getElementText(nodes[i]).indexOf(parsed.text) !== -1) {
+            count += 1;
+          }
+        }
+        return count;
+      } catch (e) {
+        return 0;
+      }
+    }
+    try {
+      return document.querySelectorAll(selector).length;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function isBroadSelector(selector) {
+    if (!selector) return false;
+    if (selector === '[data-smart-capture="commit"]') return false;
+    return countSelectorMatches(selector) > 1;
+  }
+
+  function matchesSelector(target, selector) {
+    var parsed = parseTextSelector(selector);
+    if (parsed) {
+      var base = parsed.base;
+      var matchEl = base === '*'
+        ? target
+        : (target.matches && target.matches(base) ? target : target.closest(base));
+      if (!matchEl) return false;
+      var content = getElementText(matchEl);
+      if (content.indexOf(parsed.text) === -1) return false;
+      if (!isBroadSelector(selector)) return true;
+      return isCommitElement(matchEl);
+    }
+    try {
+      var matched = target.matches(selector) ? target : target.closest(selector);
+      if (!matched) return false;
+      if (!isBroadSelector(selector)) return true;
+      return isCommitElement(matched);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function distanceBetweenRects(a, b) {
+    if (!a || !b) return Number.MAX_VALUE;
+    var dx = 0;
+    if (a.right < b.left) dx = b.left - a.right;
+    else if (b.right < a.left) dx = a.left - b.right;
+    var dy = 0;
+    if (a.bottom < b.top) dy = b.top - a.bottom;
+    else if (b.bottom < a.top) dy = a.top - b.bottom;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function countNearbyInputs(target) {
+    var container = target && target.closest ? target.closest('form, [role="dialog"], section, main') : null;
+    if (container) {
+      return container.querySelectorAll('input, select, textarea').length;
+    }
+    if (!target || !target.getBoundingClientRect) return 0;
+    var targetRect = target.getBoundingClientRect();
+    var inputs = document.querySelectorAll('input, select, textarea');
+    var count = 0;
+    inputs.forEach(function(input) {
+      if (!input || !input.getBoundingClientRect) return;
+      var type = (input.type || '').toLowerCase();
+      if (type === 'hidden') return;
+      if (input.disabled) return;
+      var rect = input.getBoundingClientRect();
+      if (!rect || rect.width === 0 || rect.height === 0) return;
+      var distance = distanceBetweenRects(targetRect, rect);
+      if (distance <= NEARBY_INPUT_DISTANCE) count += 1;
+    });
+    return count;
+  }
+
+  function matchesFallbackTerminal(target, selectors) {
+    if (!target || !fallbackEnabled) return false;
+    var text = getElementText(target);
+    if (!text) return false;
+    var strongMatch = terminalTextTokens.some(function(token) {
+      return text.indexOf(token) !== -1;
+    });
+    if (strongMatch) return true;
+    var weakMatch = weakTerminalTokens.some(function(token) {
+      return text.indexOf(token) !== -1;
+    });
+    if (!weakMatch) return false;
+    if (Object.keys(fieldCache || {}).length > 0) return true;
+    return countNearbyInputs(target) >= 2;
+  }
+
+  function isTerminalCandidate(target, selectors) {
+    if (!target) return false;
+    var isTerminal = selectors.some(function(selector) {
+      return matchesSelector(target, selector);
+    });
+    if (!isTerminal && matchesFallbackTerminal(target, selectors)) {
+      isTerminal = true;
+    }
+    return isTerminal;
+  }
+
+  function ensureTurnstileScript() {
+    var siteKey = (getConfig().smartCapture && getConfig().smartCapture.turnstileSiteKey) || '';
+    if (!siteKey) return;
+    if (document.querySelector('script[src*="turnstile"]')) return;
+    var script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
+  function ensureTurnstileWidget(form) {
+    var siteKey = (getConfig().smartCapture && getConfig().smartCapture.turnstileSiteKey) || '';
+    if (!siteKey || !form) return;
+    if (form.querySelector('.cf-turnstile')) return;
+    var widget = document.createElement('div');
+    widget.className = 'cf-turnstile';
+    widget.setAttribute('data-sitekey', siteKey);
+    widget.setAttribute('data-action', (getConfig().smartCapture && getConfig().smartCapture.turnstileAction) || 'gpthost_capture');
+    var submit = form.querySelector('button[type="submit"], input[type="submit"]');
+    if (submit && submit.parentNode) {
+      submit.parentNode.insertBefore(widget, submit);
+    } else {
+      form.appendChild(widget);
+    }
+  }
+
+  function readTurnstileToken(triggerElement) {
+    var form = triggerElement && triggerElement.closest ? triggerElement.closest('form') : null;
+    var root = form || document;
+    var input = root.querySelector('input[name="cf-turnstile-response"]');
+    var token = input && input.value;
+    return token || '';
+  }
+
+  function extractFields(triggerElement) {
+    var container = triggerElement && triggerElement.closest ? triggerElement.closest('form, [role="dialog"], section, main') : null;
+    var root = container || document.body;
+    var inputs = root.querySelectorAll('input, select, textarea');
+    var fields = {};
+    inputs.forEach(function(input) {
+      if (!input) return;
+      var type = (input.type || '').toLowerCase();
+      if (type === 'password' || type === 'hidden' || type === 'file') return;
+      if (input.autocomplete && /^cc-/.test(input.autocomplete)) return;
+      var label = getFieldLabel(input);
+      if (!label || isSensitiveLabel(label)) return;
+      var value = getFieldValue(input);
+      if (!value) return;
+      fields[label] = value;
+    });
+    return fields;
+  }
+
+  function parsePrice(text) {
+    if (!text) return null;
+    var match = text.match(/\$\s*([0-9]+(?:\.[0-9]{2})?)/);
+    if (!match) return null;
+    return Number(match[1]);
+  }
+
+  function extractQuantity(text) {
+    if (!text) return null;
+    var match = text.match(/qty\s*(\d+)/i);
+    if (match) return parseInt(match[1], 10);
+    return null;
+  }
+
+  function extractVariant(text) {
+    if (!text) return null;
+    var match = text.match(/variant:\s*([^$·\n]+)/i);
+    if (match) return match[1].trim();
+    if (text.indexOf('·') !== -1) {
+      var first = text.split('·')[0].trim();
+      if (first && first.length < 40 && first.toLowerCase().indexOf('qty') === -1) {
+        return first;
+      }
+    }
+    return null;
+  }
+
+  function countPriceTokens(text) {
+    if (!text) return 0;
+    var matches = String(text).match(/\$\s*\d/g);
+    return matches ? matches.length : 0;
+  }
+
+  function resolveCartContainer(labelNode) {
+    var node = labelNode;
+    var steps = 6;
+    while (node && steps > 0) {
+      var imgCount = node.querySelectorAll ? node.querySelectorAll('img[alt]').length : 0;
+      var priceCount = countPriceTokens(node.textContent || '');
+      if (imgCount > 0 || priceCount > 0) return node;
+      node = node.parentElement;
+      steps -= 1;
+    }
+    return labelNode && labelNode.parentElement ? labelNode.parentElement : null;
+  }
+
+  function findCartContainers() {
+    var markers = ['your cart', 'shopping cart', 'order summary'];
+    var nodes = document.querySelectorAll('h1, h2, h3, h4, h5, h6, div, span');
+    var containers = [];
+    nodes.forEach(function(node) {
+      var text = normalizeText(node.textContent || '');
+      if (!text) return;
+      var matchesMarker = markers.some(function(marker) {
+        return text.indexOf(marker) !== -1;
+      });
+      if (!matchesMarker) return;
+      var container = resolveCartContainer(node);
+      if (!container) return;
+      if (containers.indexOf(container) === -1) {
+        containers.push(container);
+      }
+    });
+    return containers;
+  }
+
+  function findItemRoot(img) {
+    var node = img && img.parentElement ? img.parentElement : null;
+    var steps = 5;
+    while (node && steps > 0) {
+      var text = normalizeLabel(node.textContent || '');
+      if (text && text.indexOf('$') !== -1) {
+        var imgs = node.querySelectorAll('img[alt]');
+        if (imgs.length <= 2) return node;
+      }
+      node = node.parentElement;
+      steps -= 1;
+    }
+    return img && img.parentElement ? img.parentElement : null;
+  }
+
+  function extractCartFromDom() {
+    var containers = findCartContainers();
+    if (!containers.length) return null;
+    var items = [];
+
+    function isCartHeading(text) {
+      var normalized = normalizeText(text || '');
+      if (!normalized) return false;
+      return (
+        normalized.indexOf('your cart') !== -1 ||
+        normalized.indexOf('shopping cart') !== -1 ||
+        normalized.indexOf('order summary') !== -1
+      );
+    }
+
+    function isNonItemHeading(text) {
+      var normalized = normalizeText(text || '');
+      if (!normalized) return false;
+      var stopTokens = ['subtotal', 'total', 'shipping', 'tax', 'checkout'];
+      return stopTokens.some(function(token) {
+        return normalized.indexOf(token) !== -1;
+      });
+    }
+
+    containers.forEach(function(container) {
+      var imgs = container.querySelectorAll('img[alt]');
+      imgs.forEach(function(img) {
+        var name = normalizeLabel(img.getAttribute('alt') || '');
+        if (!name) return;
+        var root = findItemRoot(img) || container;
+        var text = normalizeLabel(root.textContent || '');
+        var price = parsePrice(text);
+        var quantity = extractQuantity(text);
+        var variant = extractVariant(text);
+        items.push({
+          name: name,
+          price: price,
+          quantity: quantity || 1,
+          variant: variant || undefined
+        });
+      });
+
+      // Fallback path for carts that have no images (some templates use icon-only cards).
+      // We look for product-like headings near a price, while avoiding summary headings.
+      if (!imgs.length) {
+        var headings = container.querySelectorAll('h2, h3, h4, h5');
+        headings.forEach(function(heading) {
+          var rawName = normalizeLabel(heading.textContent || '');
+          if (!rawName) return;
+          if (isCartHeading(rawName)) return;
+          if (isNonItemHeading(rawName)) return;
+
+          var root = heading.parentElement;
+          var steps = 4;
+          var rootText = '';
+          var price = null;
+          while (root && steps > 0) {
+            rootText = normalizeLabel(root.textContent || '');
+            price = parsePrice(rootText);
+            if (price) break;
+            root = root.parentElement;
+            steps -= 1;
+          }
+          if (!price) return;
+
+          var quantity = extractQuantity(rootText);
+          var variant = extractVariant(rootText);
+          items.push({
+            name: rawName,
+            price: price,
+            quantity: quantity || 1,
+            variant: variant || undefined
+          });
+        });
+      }
+    });
+    if (!items.length) return null;
+    var deduped = {};
+    items.forEach(function(item) {
+      var key = item.name.toLowerCase();
+      if (!deduped[key]) {
+        deduped[key] = item;
+        return;
+      }
+      var existing = deduped[key];
+      if (!existing.price && item.price) existing.price = item.price;
+      if (existing.quantity && item.quantity) {
+        existing.quantity = Math.max(existing.quantity, item.quantity);
+      }
+    });
+    var result = Object.keys(deduped).map(function(key) { return deduped[key]; });
+    return result.length ? { items: result } : null;
+  }
+
+  function extractCart() {
+    try {
+      var attrEl = document.querySelector('[data-smart-capture-cart]');
+      if (attrEl) {
+        var raw = attrEl.getAttribute('data-smart-capture-cart');
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === 'object') {
+            if (Array.isArray(parsed.items)) {
+              return parsed;
+            }
+            if (Array.isArray(parsed)) {
+              return { items: parsed };
+            }
+          }
+        }
+      }
+    } catch (e) {
+      // Ignore cart attribute parsing failures.
+    }
+    var keys = ['cart', 'shopping_cart', 'basket', 'items'];
+    for (var i = 0; i < keys.length; i += 1) {
+      try {
+        var raw = localStorage.getItem(keys[i]);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {
+        continue;
+      }
+    }
+    return extractCartFromDom();
+  }
+
+  function extractSelections() {
+    var selections = {};
+    var selected = document.querySelectorAll('[data-selected="true"], .selected, .active, [aria-selected="true"]');
+    selected.forEach(function(el) {
+      if (!el || !el.dataset) return;
+      var key = el.id || el.className || 'item';
+      selections[key] = Object.assign({}, el.dataset);
+    });
+    return selections;
+  }
+
+  function createSubmissionId() {
+    if (window.crypto && window.crypto.randomUUID) {
+      return window.crypto.randomUUID();
+    }
+    return 'submission_' + Math.random().toString(36).slice(2);
+  }
+
+  var journeyId = null;
+  var journeyCommitted = false;
+
+  function ensureJourneyState() {
+    if (journeyId) return;
+    if (window.__GPTHOST_CAPTURE_JOURNEY_ID) {
+      journeyId = window.__GPTHOST_CAPTURE_JOURNEY_ID;
+      journeyCommitted = Boolean(window.__GPTHOST_CAPTURE_COMMITTED);
+      return;
+    }
+    journeyId = createSubmissionId();
+    window.__GPTHOST_CAPTURE_JOURNEY_ID = journeyId;
+  }
+
+  function markJourneyCommitted() {
+    journeyCommitted = true;
+    window.__GPTHOST_CAPTURE_COMMITTED = true;
+  }
+
+  var lastCaptureSentAtMs = 0;
+  function shouldSendCaptureNow() {
+    var now = Date.now();
+    if (now - lastCaptureSentAtMs < 750) return false;
+    lastCaptureSentAtMs = now;
+    return true;
+  }
+
+  async function sendCapture(payload, turnstileToken) {
+    if (!payload) return;
+    ensureJourneyState();
+    if (journeyCommitted) return;
+    if (!shouldSendCaptureNow()) return;
+    markJourneyCommitted();
+    try {
+      await fetch('/api/v2/capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          projectId: getConfig().projectId,
+          submissionId: journeyId,
+          turnstileToken: turnstileToken || '',
+          turnstileAction: (getConfig().smartCapture && getConfig().smartCapture.turnstileAction) || 'gpthost_capture',
+          context: payload
+        })
+      });
+    } catch (err) {
+      console.warn('GPTHost capture failed', err);
+    }
+  }
+
+  function buildPayload(triggerElement, eventType, triggerText) {
+    var latestFields = extractFields(triggerElement);
+    fieldCache = mergeFields(fieldCache, latestFields);
+    var answerFields = mergeFields(selectionCache, extractAnswersFromAttribute());
+    var mergedFields = mergeFields(fieldCache, answerFields);
+    writeAnswersAttribute(mergedFields);
+    return {
+      trigger: triggerText || '',
+      eventType: eventType || '',
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      fields: mergedFields,
+      cart: extractCart(),
+      selections: extractSelections()
+    };
+  }
+
+  function handleInput(event) {
+    if (!isEnabled()) return;
+    var target = event.target;
+    if (!target || !target.matches) return;
+    if (!target.matches('input, select, textarea')) return;
+    captureField(target);
+  }
+
+  function handleSubmit(event) {
+    if (!isEnabled()) return;
+    var form = event.target;
+    ensureTurnstileWidget(form);
+    var token = readTurnstileToken(form);
+    if (requiresTurnstile() && !token) return;
+    var payload = buildPayload(form, 'submit', 'form_submit');
+    sendCapture(payload, token);
+  }
+
+  function handleClick(event) {
+    if (!isEnabled()) return;
+    var selectors = cachedSelectors || getSelectors();
+    var selectionTarget = findSelectionCandidate(event.target);
+    if (selectionTarget && !isTerminalCandidate(selectionTarget, selectors)) {
+      recordSelection(selectionTarget);
+    }
+    var target = event.target && event.target.closest ? event.target.closest('button, a, [role="button"]') : null;
+    if (!target) return;
+    if (!isTerminalCandidate(target, selectors)) return;
+    var token = readTurnstileToken(target);
+    if (requiresTurnstile() && !token) return;
+    var payload = buildPayload(target, 'terminal_click', target.textContent || '');
+    sendCapture(payload, token);
+  }
+
+  function isEditableEnter(event) {
+    if (!event) return false;
+    var key = event.key || '';
+    if (key !== 'Enter' && event.keyCode !== 13) return false;
+    var target = event.target;
+    if (!target) return false;
+    if (target.isContentEditable) return false;
+    return true;
+  }
+
+  function countLineBreaks(value) {
+    if (!value) return 0;
+    var matches = String(value).match(/\n/g);
+    return matches ? matches.length : 0;
+  }
+
+  function isDisabled(el) {
+    if (!el) return true;
+    if (el.disabled) return true;
+    if (el.getAttribute && el.getAttribute('aria-disabled') === 'true') return true;
+    return false;
+  }
+
+  function isElementVisible(el) {
+    if (!el) return false;
+    var rect = el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+    var viewport = document.documentElement && document.documentElement.getBoundingClientRect
+      ? document.documentElement.getBoundingClientRect()
+      : null;
+    var hasLayout = !!(viewport && (viewport.width > 0 || viewport.height > 0));
+    if (hasLayout && rect && rect.width === 0 && rect.height === 0) return false;
+    var node = el;
+    while (node && node !== document.documentElement) {
+      if (node.hasAttribute && node.hasAttribute('hidden')) return false;
+      if (node.getAttribute && node.getAttribute('aria-hidden') === 'true') return false;
+      if (node.style && node.style.display === 'none') return false;
+      if (node.style && node.style.visibility === 'hidden') return false;
+      var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+      if (style) {
+        if (style.display === 'none') return false;
+        if (style.visibility === 'hidden' || style.visibility === 'collapse') return false;
+        if (parseFloat(style.opacity || '1') <= 0) return false;
+        if (style.pointerEvents === 'none') return false;
+      }
+      node = node.parentElement;
+    }
+    return true;
+  }
+
+  function isPotentialContainer(el) {
+    if (!el || !el.tagName) return false;
+    if (el.matches && el.matches('form, [role="dialog"], [aria-modal="true"], section, main')) return true;
+    if (el.classList && el.classList.contains('slide')) return true;
+    if (el.getAttribute && el.getAttribute('data-step')) return true;
+    if (el.dataset && (el.dataset.step || el.dataset.slide || el.dataset.stage)) return true;
+    return false;
+  }
+
+  function isStepContainer(el) {
+    if (!el || !el.tagName) return false;
+    if (el.classList && el.classList.contains('slide')) return true;
+    if (el.getAttribute && el.getAttribute('data-step')) return true;
+    if (el.dataset && (el.dataset.step || el.dataset.slide || el.dataset.stage)) return true;
+    if (el.getAttribute && el.getAttribute('role') === 'dialog') return true;
+    if (el.getAttribute && el.getAttribute('aria-modal') === 'true') return true;
+    return false;
+  }
+
+  function findActiveContainer(target) {
+    var node = target;
+    while (node && node !== document.body) {
+      if (isPotentialContainer(node) && isElementVisible(node)) return node;
+      node = node.parentElement;
+    }
+    if (target && target.closest) {
+      return target.closest('form, [role="dialog"], [aria-modal="true"], section, main');
+    }
+    return null;
+  }
+
+  function findTerminalCandidate(scope, selectors, allowHidden) {
+    if (!scope || !scope.querySelectorAll) return null;
+    var candidates = scope.querySelectorAll('button, a, [role="button"], input[type="submit"]');
+    var hiddenMatch = null;
+    for (var i = 0; i < candidates.length; i += 1) {
+      var candidate = candidates[i];
+      if (!candidate) continue;
+      if (isDisabled(candidate)) continue;
+      var isVisible = isElementVisible(candidate);
+      var matches = selectors.some(function(selector) {
+        return matchesSelector(candidate, selector);
+      });
+      var matchesFallback = matchesFallbackTerminal(candidate, selectors);
+      if (!matches && !matchesFallback) continue;
+      if (isVisible) return candidate;
+      if (allowHidden && !hiddenMatch) {
+        hiddenMatch = candidate;
+      }
+    }
+    return hiddenMatch;
+  }
+
+  var pendingKeydownTimer = 0;
+
+  function deferKeydownCommit(callback) {
+    if (pendingKeydownTimer) {
+      clearTimeout(pendingKeydownTimer);
+    }
+    pendingKeydownTimer = window.setTimeout(function() {
+      pendingKeydownTimer = 0;
+      callback();
+    }, 0);
+  }
+
+  function findStepContainerFromTarget(target) {
+    if (!target || !target.closest) return null;
+    var step = target.closest('.slide, [data-step], [data-slide], [data-stage], [role="dialog"], [aria-modal="true"]');
+    if (!step) return null;
+    if (!isElementVisible(step)) return null;
+    return step;
+  }
+
+  function findVisibleStepContainer() {
+    var candidates = document.querySelectorAll('.slide, [data-step], [data-slide], [data-stage], [role="dialog"], [aria-modal="true"]');
+    for (var i = 0; i < candidates.length; i += 1) {
+      if (isElementVisible(candidates[i])) return candidates[i];
+    }
+    return null;
+  }
+
+  function resolveKeydownContext(fallbackTarget, preferredStep) {
+    var activeElement = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
+    var target = activeElement && document.contains(activeElement) ? activeElement : fallbackTarget;
+    if (!target) return null;
+    var container = null;
+    if (preferredStep && document.contains(preferredStep)) {
+      container = preferredStep;
+    } else {
+      container = findVisibleStepContainer() || findActiveContainer(target);
+    }
+    var scope = container || document.body;
+    var selectors = cachedSelectors || getSelectors();
+    var allowHidden = Boolean(container && isStepContainer(container));
+    var terminal = findTerminalCandidate(scope, selectors, allowHidden);
+    if (!terminal) return null;
+    return { target: target, container: container, terminal: terminal };
+  }
+
+  function commitFromKeydown(fallbackTarget, preferredStep, resolvedContext) {
+    var terminal = resolvedContext && resolvedContext.terminal ? resolvedContext.terminal : null;
+    var container = resolvedContext && resolvedContext.container ? resolvedContext.container : null;
+    if (!terminal) {
+      var resolved = resolveKeydownContext(fallbackTarget, preferredStep);
+      if (!resolved) return;
+      terminal = resolved.terminal;
+      container = resolved.container;
+    }
+
+    ensureTurnstileWidget(container || terminal.closest('form'));
+    var token = readTurnstileToken(terminal);
+    if (requiresTurnstile() && !token) return;
+
+    var payload = buildPayload(terminal, 'terminal_keydown', getElementText(terminal));
+    sendCapture(payload, token);
+  }
+
+  function handleTextareaEnter(target) {
+    if (!target) return;
+    var previousValue = String(target.value || '');
+    var previousBreaks = countLineBreaks(previousValue);
+    var preferredStep = findStepContainerFromTarget(target) || findVisibleStepContainer();
+    var resolvedContext = resolveKeydownContext(target, preferredStep);
+
+    deferKeydownCommit(function() {
+      if (!document.contains(target)) return;
+      var currentValue = String(target.value || '');
+      var currentBreaks = countLineBreaks(currentValue);
+      if (currentBreaks > previousBreaks) return;
+      commitFromKeydown(target, preferredStep, resolvedContext);
+    });
+  }
+
+  function handleKeyDown(event) {
+    if (!isEnabled()) return;
+    if (!isEditableEnter(event)) return;
+
+    var target = event.target;
+    if (target && target.tagName === 'TEXTAREA') {
+      handleTextareaEnter(target);
+      return;
+    }
+
+    var preferredStep = findStepContainerFromTarget(target) || findVisibleStepContainer();
+    var resolvedContext = resolveKeydownContext(target, preferredStep);
+
+    deferKeydownCommit(function() {
+      commitFromKeydown(target, preferredStep, resolvedContext);
+    });
+  }
+
+  function init() {
+    if (!isEnabled()) return;
+    if (window.__GPTHOST_CAPTURE_ACTIVE) return;
+    window.__GPTHOST_CAPTURE_ACTIVE = true;
+    ensureTurnstileScript();
+    cachedSelectors = getSelectors();
+    initFallback(cachedSelectors);
+    decorateSurveyElements();
+    fieldCache = mergeFields(fieldCache, extractFields(document.body));
+    document.querySelectorAll('form').forEach(function(form) {
+      ensureTurnstileWidget(form);
+    });
+    document.addEventListener('submit', handleSubmit, true);
+    document.addEventListener('input', handleInput, true);
+    document.addEventListener('change', handleInput, true);
+    document.addEventListener('keydown', handleKeyDown, true);
+    document.addEventListener('click', handleClick, true);
+  }
+
+  window.__GPTHOST_CAPTURE_INLINE_INIT = init;
+
+  var shouldAutoInit = true;
+  if (window.__GPTHOST_CAPTURE_DISABLE_INLINE && !window.__GPTHOST_CAPTURE_DYNAMIC_RUNTIME) {
+    shouldAutoInit = false;
+  }
+
+  if (shouldAutoInit) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  }
+})();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"240b053417c84085b02f8c5cd3079fa3","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
